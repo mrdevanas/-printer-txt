@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+</head>
+
+<body style="background-image: url(https://i.pinimg.com/originals/95/9f/b1/959fb1f51bc1026ace27acede55e1bc8.gif);">
+  <center>  <div  style=" background-color: rgba(0, 0, 0, 0.557); border: 1px red solid;   width: 100%;">
+     <p style="color: aliceblue; text-align: center; font-size: 35px;">You can print any  text in this web site </p></div>
+   
+    <div style=" background-color: rgba(0, 0, 0, 0.671); margin-top: 100px; border: 1px rgb(255, 156, 156) solid; width: 300px; border-radius: 20px;">
+    <textarea   placeholder="Type The Text" type="text" style="max-width: 250px;  background-color: rgb(255, 162, 162); text-align: center;"  id="Entr"></textarea>
+    <br>    <br>
+    <br>
+    <input   placeholder="Choose the number" type="number" style="width: 120px; background-color: aliceblue; text-align: center;" id="num">
+    <br>    <br>
+    <br>
+
+    <button id="bu"   onclick="bu()">Submit</button>
+    <button id="ag" style="display: none;"   onclick="ag()">Again !</button>
+
+    <br><br>
+   
+    <textarea style="text-align: center; max-width: 250px;"  placeholder="That s ur text sir" id="print"></textarea>
+    <br>
+     <button id="cpy" onclick="co()">Copy</button>
+</div></center>
+
+</body>
+</html>
+<script>
+  function ag(){
+    document.getElementById('ag').innerHTML = location.reload()
+
+  }
+    function bu(){
+
+
+      if(document.getElementById('num').value === "" || document.getElementById('Entr').value === "" ){
+        return;        
+
+      }else{
+                   document.getElementById('bu').style.display = 'none'
+                   document.getElementById('ag').style.display = 'block'
+
+      }
+  let a =   0
+let b = setInterval(() => {
+  a++
+    document.getElementById('print').value += a + " " + document.getElementById('Entr').value    +'\n' ;
+       
+     if (a ===  parseInt(document.getElementById('num').value)){
+    clearInterval(b)
+
+}
+});
+}
+function co()
+    {
+    
+        document.getElementById('print').select();
+        
+        document.execCommand("copy")
+    }
+</script>
+<style>
+    #cpy:hover{
+background-color: green;
+border: 0px;  
+    }
+    #bu:hover{
+background-color: rgb(89, 98, 255);
+border: 0px;  
+    }
+ 
+</style>
